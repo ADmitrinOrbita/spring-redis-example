@@ -1,4 +1,4 @@
-package ru.dmitrin.cache.springredisexample.model;
+package ru.dmitrin.cache.springredisexample.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

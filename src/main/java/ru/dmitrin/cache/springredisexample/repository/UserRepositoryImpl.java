@@ -3,7 +3,7 @@ package ru.dmitrin.cache.springredisexample.repository;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
-import ru.dmitrin.cache.springredisexample.model.User;
+import ru.dmitrin.cache.springredisexample.domain.User;
 
 import java.util.Map;
 

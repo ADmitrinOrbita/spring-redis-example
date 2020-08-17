@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import ru.dmitrin.cache.springredisexample.model.User;
+import ru.dmitrin.cache.springredisexample.domain.User;
 
 @Configuration
 public class AppConfig {

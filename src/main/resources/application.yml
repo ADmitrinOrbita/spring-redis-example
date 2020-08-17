@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+
+opentracing:
+  jaeger:
+    service-name: jaeger-tracer-service
+    enabled: true
+    udp-sender:
+        host: localhost
+        port: 6831
