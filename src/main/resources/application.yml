@@ -1,6 +1,14 @@
 server:
   port: 8082
 
+app:
+  name: redis-service
+
+logging:
+  fluentd:
+    host: localhost
+    port: 24224
+
 spring:
   redis:
     host: localhost
@@ -8,7 +16,7 @@ spring:
 
 opentracing:
   jaeger:
-    service-name: jaeger-tracer-service
+    service-name: jaeger-tracer
     enabled: true
     udp-sender:
         host: localhost

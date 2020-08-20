@@ -12,9 +12,9 @@ public class UserRepositoryImpl implements UserRepository {
 
     public static final String USER = "USER";
 
-    private final HashOperations hashOperations;
+    private final HashOperations<String, String, User> hashOperations;
 
-    public UserRepositoryImpl(RedisTemplate redisTemplate) {
+    public UserRepositoryImpl(RedisTemplate<String, User> redisTemplate) {
         this.hashOperations = redisTemplate.opsForHash();
     }
 
@@ -30,7 +30,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findById(String id) {
-        return (User) hashOperations.get(USER, id);
+        return hashOperations.get(USER, id);
     }
 
     @Override

@@ -13,6 +13,7 @@ public class AppConfig {
 
     @Value("${spring.redis.host}")
     private String host;
+
     @Value("${spring.redis.port}")
     private Integer port;
 
@@ -20,7 +21,6 @@ public class AppConfig {
     public LettuceConnectionFactory lettuceConnectionFactory() {
         LettuceConnectionFactory connectionFactory =
                 new LettuceConnectionFactory(new RedisStandaloneConfiguration(host, port));
-
         connectionFactory.afterPropertiesSet();
         return connectionFactory;
     }
