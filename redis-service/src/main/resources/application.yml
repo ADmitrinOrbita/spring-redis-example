@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+app:
+  name: redis-service
+
+logging:
+  fluentd:
+    host: localhost
+    port: 24224
+
+spring:
+  redis:
+    key: USER2
+    host: localhost
+    port: 6379
+
+opentracing:
+  jaeger:
+    service-name: redis-service
+    enabled: true
+    udp-sender:
+        host: localhost
+        port: 6831

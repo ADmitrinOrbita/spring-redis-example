@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <springProperty scope="context" name="labelName" source="app.name"/>
+    <springProperty scope="context" name="fluentdHost" source="logging.fluentd.host"/>
+    <springProperty scope="context" name="fluentdPort" source="logging.fluentd.port"/>
+    <appender name="FLUENT" class="ch.qos.logback.more.appenders.DataFluentAppender">
+        <tag>cs</tag>
+        <label>${labelName}</label>
+        <remoteHost>${fluentdHost}</remoteHost>
+        <port>${fluentdPort}</port>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %highlight(%5.-5level) %cyan(%50.50logger{50}) %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="FLUENT" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
