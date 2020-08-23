@@ -4,17 +4,20 @@ server:
 app:
   name: redis-service
 
+# Fluentd
 logging:
   fluentd:
     host: localhost
     port: 24224
 
+# Redis
 spring:
   redis:
     key: USER2
     host: localhost
     port: 6379
 
+# Jaeger
 opentracing:
   jaeger:
     service-name: redis-service
@@ -22,3 +25,13 @@ opentracing:
     udp-sender:
         host: localhost
         port: 6831
+
+# Spring-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

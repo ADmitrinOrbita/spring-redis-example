@@ -33,4 +33,7 @@ build/
 .vscode/
 
 ### Redis ###
-dump.rdb
+deploy/data/redis/dump.rdb
+
+### Data from containers ###
+/deploy/data
