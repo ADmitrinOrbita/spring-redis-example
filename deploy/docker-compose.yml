@@ -41,6 +41,7 @@ services:
   fluentd:
     build: ./fluentd
     container_name: fluentd
+    restart: unless-stopped
     volumes:
       - ./fluentd/conf:/fluentd/etc
     links:

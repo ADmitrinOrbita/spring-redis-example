@@ -1,5 +1,6 @@
 package ru.dmitrin.microservice.client.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -8,13 +9,14 @@ import org.springframework.web.client.RestTemplate;
 import ru.dmitrin.microservice.domain.dto.UserDto;
 
 @Log4j2
+@RequiredArgsConstructor
 @Service
 public class RedisServiceClient {
 
     @Value("${redis.client.host}")
     private String url;
 
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
 
     public UserDto getById(String id) {
         log.info("Searching for User with id:{}", id);

@@ -14,6 +14,7 @@ opentracing:
       port: 6831
 
 logging:
+  config: "classpath:logback-spring.xml"
   fluentd:
     host: localhost
     port: 24224

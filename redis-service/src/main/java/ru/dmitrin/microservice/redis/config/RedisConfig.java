@@ -9,7 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import ru.dmitrin.microservice.redis.domain.User;
 
 @Configuration
-public class AppConfig {
+public class RedisConfig {
 
     @Value("${spring.redis.host}")
     private String host;
@@ -17,7 +17,7 @@ public class AppConfig {
     @Value("${spring.redis.port}")
     private Integer port;
 
-    @Bean
+    @Bean(destroyMethod = "destroy")
     public LettuceConnectionFactory lettuceConnectionFactory() {
         LettuceConnectionFactory connectionFactory =
                 new LettuceConnectionFactory(new RedisStandaloneConfiguration(host, port));
