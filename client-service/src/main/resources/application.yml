@@ -1,22 +1,25 @@
 server:
   port: 8081
 
+app:
+  name: client-service
+
 redis:
   client:
-    host: http://localhost:8082/users
+    host: http://redis-service:8082/users
 
 opentracing:
   jaeger:
     service-name: client-service
     enabled: true
     udp-sender:
-      host: localhost
+      host: jaeger-allinone
       port: 6831
 
 logging:
   config: "classpath:logback-spring.xml"
   fluentd:
-    host: localhost
+    host: fluentd
     port: 24224
 
 management:

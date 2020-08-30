@@ -8,14 +8,14 @@ app:
 logging:
   config: "classpath:logback-spring.xml"
   fluentd:
-    host: localhost
+    host: fluentd
     port: 24224
 
 # Redis
 spring:
   redis:
     key: USER2
-    host: localhost
+    host: redis-master
     port: 6379
 
 # Jaeger
@@ -24,7 +24,7 @@ opentracing:
     service-name: redis-service
     enabled: true
     udp-sender:
-        host: localhost
+        host: jaeger-allinone
         port: 6831
 
 # Spring-actuator
