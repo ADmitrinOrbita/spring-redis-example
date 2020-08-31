@@ -108,7 +108,7 @@ services:
     build:
       context: ../redis-service
       dockerfile: Dockerfile
-    restart: unless-stopped
+#    restart: unless-stopped
     links:
       - fluentd
       - jaeger-allinone
@@ -125,7 +125,7 @@ services:
     build:
       context: ../client-service
       dockerfile: Dockerfile
-    restart: unless-stopped
+#    restart: unless-stopped
     links:
       - fluentd
       - jaeger-allinone
