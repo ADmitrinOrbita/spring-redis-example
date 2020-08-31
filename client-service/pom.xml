@@ -85,6 +85,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>dmitrinav/client-service</name>
+                    </image>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

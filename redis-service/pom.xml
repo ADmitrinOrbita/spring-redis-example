@@ -92,6 +92,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>dmitrinav/redis-service</name>
+                    </image>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

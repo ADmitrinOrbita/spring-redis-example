@@ -107,7 +107,7 @@ services:
     container_name: redis-service
     build:
       context: ../redis-service
-      dockerfile: Dockerfile
+    image: dmitrinav/redis-service
 #    restart: unless-stopped
     links:
       - fluentd
@@ -124,7 +124,7 @@ services:
     container_name: client-service
     build:
       context: ../client-service
-      dockerfile: Dockerfile
+    image: dmitrinav/client-service
 #    restart: unless-stopped
     links:
       - fluentd
