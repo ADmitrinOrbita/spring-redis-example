@@ -82,14 +82,47 @@
 
     <build>
         <plugins>
+            <!-- ~/.m2/setting.xml : $ ./mvn encrypt-master-password <password> -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.5.2</version>
+                <!-- ./mvn compile jib:build -->
+                <configuration>
+                    <!-- https://www.baeldung.com/jib-dockerizing -->
+                    <from>
+                        <image>adoptopenjdk/openjdk11:jdk-11.0.8_10-alpine</image>
+                    </from>
+                    <container>
+                        <ports>
+                            <port>8081</port>
+                        </ports>
+                    </container>
+                    <to>
+                        <image>docker.io/dmitrinav/client-service</image>
+                    </to>
+                </configuration>
+                <!-- make a part of build process-->
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- Local image builder: $ ./mvn spring-boot:build-image -->
                 <configuration>
                     <image>
                         <name>dmitrinav/client-service</name>
                     </image>
                 </configuration>
+                <!-- Jar builder -->
                 <executions>
                     <execution>
                         <goals>

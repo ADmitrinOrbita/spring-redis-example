@@ -6,6 +6,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 import ru.dmitrin.microservice.redis.domain.User;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Repository
@@ -27,7 +28,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Map<String, User> findAll() {
-        return hashOperations.entries(key);
+        if (!hashOperations.entries(key).isEmpty()) {
+            return hashOperations.entries(key);
+        }
+
+        return new HashMap<>();
     }
 
     @Override
